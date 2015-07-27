@@ -1254,15 +1254,17 @@ header {
 }
 @media screen and (max-width: 900px) {
   .hdg-01 {
-    font-size: 30px;
-    padding: 10px 20px 10px 70px;
+    font-size: 26px;
+    padding: 15px 20px 10px 62px;
   }
   .hdg-01 span {
-    font-size: 30px;
+    font-size: 26px;
   }
   .hdg-01:before {
-    width: 108px;
-    height: 108px;
+    top: auto;
+    bottom: -3px;
+    width: 66px;
+    height: 66px;
     background-size: 70px auto;
   }
 }
@@ -1280,6 +1282,13 @@ hr.hr-01 {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.75), transparent);
+}
+@media screen and (max-width: 1034px) {
+  hr.hr-01 {
+    margin: 0 0 60px;
+    height: 1px;
+    display: block;
+  }
 }
 
 .table-01 {
@@ -1300,6 +1309,13 @@ hr.hr-01 {
 .table-01 .link-01 {
   display: inline-block;
   margin-top: 10px;
+  position: relative;
+  padding-left: 1.25em;
+}
+.table-01 .link-01 .genericon-rightarrow {
+  position: absolute;
+  top: 2px;
+  left: 0;
 }
 
 .col-2 {
@@ -1381,24 +1397,17 @@ hr.hr-01 {
 /********************************************
 * slider
 ********************************************/
-#list-slide-visual {
-  padding: 0;
-  margin: 0;
-  display: table;
-}
-#list-slide-visual li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 #wrap-box-slidevisual {
   width: 800px;
   margin: 0 auto 20px;
   position: relative;
   margin-bottom: 20px;
-  -webkit-box-shadow: 0px 0px 3px #333333;
   box-shadow: 0px 0px 3px #333333;
+}
+@media screen and (max-width: 800px) {
+  #wrap-box-slidevisual {
+    width: 100%;
+  }
 }
 
 #box-slidevisual {
@@ -1407,32 +1416,16 @@ hr.hr-01 {
   margin: 0 auto;
   overflow: hidden;
 }
-
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
   #box-slidevisual {
     min-width: 100%;
     width: 100%;
   }
-
   #box-slidevisual img {
-    min-width: 100%;
-  }
-}
-#list-slide-visual {
-  position: relative;
-  display: table;
-  margin-bottom: 0;
-}
-
-#list-slide-visual li {
-  width: 800px;
-}
-
-@media screen and (max-width: 900px) {
-  #list-slide-visual li {
     width: 100%;
   }
 }
+
 #box-slidevisual .back {
   position: absolute;
   top: 50%;
@@ -1458,6 +1451,11 @@ hr.hr-01 {
   position: absolute;
   left: -40px;
 }
+@media screen and (max-width: 900px) {
+  #box-slidevisual .back a:before {
+    left: 0px;
+  }
+}
 
 #box-slidevisual .next {
   position: absolute;
@@ -1482,9 +1480,42 @@ hr.hr-01 {
   position: absolute;
   right: -40px;
 }
+@media screen and (max-width: 900px) {
+  #box-slidevisual .next a:before {
+    right: 0px;
+  }
+}
 
 @media screen and (max-width: 768px) {
   #box-slidevisual .back, #box-slidevisual .next {
-    top: 40%;
+    top: 50%;
   }
+}
+#list-slide-visual {
+  padding: 0;
+  margin: 0;
+  display: table;
+  position: relative;
+}
+#list-slide-visual li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 800px;
+}
+@media screen and (max-width: 800px) {
+  #list-slide-visual li {
+    width: 100%;
+  }
+}
+
+footer {
+  border-top: 2px solid #000;
+  background: #85000f 0 0;
+  padding: 20px 10px;
+  text-align: center;
+}
+footer p {
+  color: #fff;
+  font-size: 12px;
 }
