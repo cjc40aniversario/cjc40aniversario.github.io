@@ -1096,7 +1096,10 @@ img {
 
 body {
   font: 16px/1.231 Helvetica,Arial,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','モリサワ 新ゴ R','Droid Sans',メイリオ,'sans-serif';
-  background: url(/common/img/bg.jpg) 0 0;
+  background: url(/common/img/bg_01.jpg) 0 0 no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color: #222;
 }
 
 header {
@@ -1233,7 +1236,6 @@ header {
   padding: 30px 20px 30px 145px;
   margin-bottom: 40px;
   font-size: 62px;
-  color: #000;
   border-bottom: 8px solid #85000f;
 }
 .hdg-01 span {
@@ -1292,7 +1294,6 @@ hr.hr-01 {
 }
 .table-01 td {
   width: 75%;
-  color: #333;
   border-bottom: 1px dashed #333;
   padding: 15px;
 }
