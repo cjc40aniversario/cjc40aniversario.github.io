@@ -66,6 +66,59 @@ var windowSize = getScreenWidth();
 	});
 }smoothScrol();
 
+
+/* ---------------------------------------------------------------------
+	slide-visual
+---------------------------------------------------------------------*/
+
+	var
+	setElm00 = $('#effect'),
+	setElm01 = $('#kaskas'),
+	setElm02 = $('#overview'),
+	setElm03 = $('#relate'),
+	ajustHeight;
+
+	if(windowSize > 768){
+		ajustHeight = 800;
+	}else if(windowSize > 640 && windowSize <= 768){
+		ajustHeight = 500;
+	}else{
+		ajustHeight = 400;
+	}
+
+	setElm00.next().css({"opacity":"0"});
+	setElm01.next().css({"opacity":"0"});
+	setElm02.next().css({"opacity":"0"});
+	setElm03.next().css({"opacity":"0"});
+
+
+	$(window).on('load scroll resize',function(){
+		
+		var
+		elmTop00 = setElm00.offset().top,
+		elmTop01 = setElm01.offset().top,
+		elmTop02 = setElm02.offset().top,
+		elmTop03 = setElm03.offset().top,
+		scrTop = $(window).scrollTop();　//windowの高さ
+
+		if(scrTop >= elmTop00 - ajustHeight){
+			setElm00.next().css({"opacity":"1"}).addClass('fadeInUp');
+		}
+
+		if(scrTop >= elmTop01 - ajustHeight){
+			setElm01.next().css({"opacity":"1"}).addClass('fadeInUp');
+		}
+
+		if(scrTop >= elmTop02 - ajustHeight){
+			setElm02.next().css({"opacity":"1"}).addClass('fadeInUp');
+		}
+
+		if(scrTop >= elmTop03 - ajustHeight){
+			setElm03.next().css({"opacity":"1"}).addClass('fadeInUp');
+		}
+
+	});
+
 /* ---------------------------------------------------------------------
 	slide-visual
 ---------------------------------------------------------------------*/

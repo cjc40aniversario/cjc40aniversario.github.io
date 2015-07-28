@@ -1098,8 +1098,16 @@ body {
   font: 16px/1.231 Helvetica,Arial,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','モリサワ 新ゴ R','Droid Sans',メイリオ,'sans-serif';
   background: url(/common/img/bg_01.jpg) 0 0 no-repeat;
   background-attachment: fixed;
+  background-position: center center;
   background-size: 100% 100%;
   color: #222;
+}
+@media screen and (max-width: 640px) {
+  body {
+    background: url(/common/img/bg_sp.jpg) 0 0;
+    background-attachment: scroll;
+    background-size: auto auto;
+  }
 }
 
 header {
@@ -1511,11 +1519,70 @@ hr.hr-01 {
 
 footer {
   border-top: 2px solid #000;
-  background: #85000f 0 0;
+  background-color: #85000f;
+  background: linear-gradient(160deg, #85000f, #960311);
   padding: 20px 10px;
   text-align: center;
 }
 footer p {
   color: #fff;
   font-size: 12px;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
