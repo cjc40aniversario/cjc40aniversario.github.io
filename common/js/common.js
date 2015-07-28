@@ -81,9 +81,9 @@ var windowSize = getScreenWidth();
 	if(windowSize > 768){
 		ajustHeight = 800;
 	}else if(windowSize > 640 && windowSize <= 768){
-		ajustHeight = 500;
+		ajustHeight = 550;
 	}else{
-		ajustHeight = 400;
+		ajustHeight = 500;
 	}
 
 	setElm00.next().css({"opacity":"0"});
