@@ -79,7 +79,7 @@ var windowSize = getScreenWidth();
 	ajustHeight;
 
 	if(windowSize > 768){
-		ajustHeight = 800;
+		ajustHeight = 650;
 	}else if(windowSize > 640 && windowSize <= 768){
 		ajustHeight = 550;
 	}else{
