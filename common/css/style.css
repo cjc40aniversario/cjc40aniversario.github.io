@@ -190,7 +190,7 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
-  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -307,6 +307,7 @@ input {
  */
 input[type="checkbox"],
 input[type="radio"] {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -331,7 +332,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box;
@@ -1099,14 +1099,31 @@ body {
   background: url(/common/img/bg_01.jpg) 0 0 no-repeat;
   background-attachment: fixed;
   background-position: center center;
+  -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
   color: #222;
 }
 @media screen and (max-width: 640px) {
   body {
-    background: url(/common/img/bg_sp.jpg) 0 0;
-    background-attachment: scroll;
-    background-size: auto auto;
+    background: none;
+  }
+  body:before {
+    background: url(/common/img/bg_sp.jpg) no-repeat left 50px;
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: -1;
+  }
+}
+@media screen and (max-width: 374px) {
+  body {
+    font-size: 14px;
   }
 }
 
@@ -1136,7 +1153,7 @@ header {
 
 #logo {
   position: absolute;
-  top: 0;
+  top: 1px;
   left: -10px;
   margin: 0;
   padding: 0;
@@ -1166,6 +1183,7 @@ header {
   }
 }
 #gloval-nav li {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
   list-style: none;
@@ -1237,7 +1255,6 @@ header {
 * module
 ********************************************/
 .hdg-01 {
-  margin-bottom: 20px;
   border-radius: 0 0 20px 20px;
   position: relative;
   padding: 30px 20px 30px 145px;
@@ -1258,6 +1275,7 @@ header {
   width: 138px;
   height: 138px;
   content: "";
+  -webkit-background-size: 100px auto;
   background-size: 100px auto;
   background: url(/common/img/hdg_bg.svg) no-repeat;
 }
@@ -1274,6 +1292,7 @@ header {
     bottom: -3px;
     width: 66px;
     height: 66px;
+    -webkit-background-size: 70px auto;
     background-size: 70px auto;
   }
 }
@@ -1290,7 +1309,7 @@ header {
 .sec-01 {
   margin-bottom: 80px;
   padding: 0px 20px 20px;
-  background: rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
 }
 @media screen and (max-width: 900px) {
   .sec-01 {
@@ -1307,6 +1326,7 @@ hr.hr-01 {
   border: 0;
   height: 1px;
   margin: 0 0 80px;
+  background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(rgba(0, 0, 0, 0.75)), to(transparent));
   background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.75), transparent);
 }
 @media screen and (max-width: 1034px) {
@@ -1344,6 +1364,45 @@ hr.hr-01 {
   left: 0;
 }
 
+.notice {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0;
+  font-size: 12px;
+}
+.notice .indent {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.txt-img:before, .txt-img:after {
+  content: "";
+  display: table;
+}
+.txt-img:after {
+  clear: both;
+}
+.txt-img .img {
+  float: left;
+  margin: 0 20px 0 0;
+  width: 241px;
+}
+.txt-img .txt {
+  overflow: hidden;
+}
+.txt-img .txt p {
+  margin: 0 0 20px;
+}
+@media screen and (max-width: 767px) {
+  .txt-img .img {
+    float: none;
+    margin: 0 0 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .col-2 {
   margin-bottom: 40px;
 }
@@ -1355,6 +1414,7 @@ hr.hr-01 {
   clear: both;
 }
 .col-2 .col {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
   width: 48%;
@@ -1364,6 +1424,9 @@ hr.hr-01 {
   margin-right: 0;
 }
 @media screen and (max-width: 767px) {
+  .col-2 {
+    margin-bottom: 20px;
+  }
   .col-2 .col {
     float: none;
     width: 100%;
@@ -1377,19 +1440,25 @@ hr.hr-01 {
   }
 }
 
-#g_map {
-  width: 100%;
-  height: 400px;
+.map img {
+  border: 2px solid #85000f;
 }
 @media screen and (max-width: 767px) {
-  #g_map {
+  .map img {
     width: 100%;
-    height: 300px;
   }
+}
+
+.map span {
+  text-align: center;
+  display: block;
+  margin: 5px 0;
+  font-size: 14px;
 }
 
 .btn-01 {
   text-align: center;
+  margin-bottom: 20px;
 }
 .btn-01 a {
   border-radius: 4px;
@@ -1420,7 +1489,7 @@ hr.hr-01 {
 .caption {
   display: block;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 10px 0 0;
   text-align: center;
 }
 
@@ -1428,10 +1497,35 @@ hr.hr-01 {
   padding: 0;
   margin: 0 0 40px;
 }
+@media screen and (max-width: 640px) {
+  .list-01 {
+    margin-bottom: 20px;
+  }
+}
 .list-01 li {
   list-style: none;
   margin: 0 0 10px;
   padding: 0;
+}
+.list-01 li span {
+  margin-top: 2px;
+}
+.list-01 li p {
+  font-size: 14px;
+  margin: 10px 0 0;
+}
+
+#move {
+  width: 100%;
+  height: 500px;
+  display: block;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 640px) {
+  #move {
+    height: 300px;
+    margin-bottom: 20px;
+  }
 }
 
 /********************************************
@@ -1442,6 +1536,7 @@ hr.hr-01 {
   margin: 0 auto 20px;
   position: relative;
   margin-bottom: 20px;
+  -webkit-box-shadow: 0px 0px 3px #333333;
   box-shadow: 0px 0px 3px #333333;
 }
 @media screen and (max-width: 800px) {
@@ -1606,6 +1701,9 @@ footer p {
   0% {
     opacity: 0;
   }
+  30% {
+    opacity: 0;
+  }
   100% {
     opacity: 1;
   }
@@ -1613,8 +1711,8 @@ footer p {
 .fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 1.8s;
+  animation-duration: 1.8s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }

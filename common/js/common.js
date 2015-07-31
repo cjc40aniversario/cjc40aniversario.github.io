@@ -2,7 +2,7 @@ $(function(){
 'use strict';
 
 /* ---------------------------------------------------------------------
-	画面幅取得
+	Get window width
 ---------------------------------------------------------------------*/
 
 var getScreenWidth = function() {
@@ -68,7 +68,7 @@ var windowSize = getScreenWidth();
 
 
 /* ---------------------------------------------------------------------
-	slide-visual
+	Scroll Animation
 ---------------------------------------------------------------------*/
 
 	var
@@ -76,14 +76,15 @@ var windowSize = getScreenWidth();
 	setElm01 = $('#kaskas'),
 	setElm02 = $('#overview'),
 	setElm03 = $('#relate'),
-	ajustHeight;
+	screenHight = screen.height,
+ 	ajustHeight;
 
 	if(windowSize > 768){
-		ajustHeight = 650;
+		ajustHeight = (screenHight/3)*2;
 	}else if(windowSize > 640 && windowSize <= 768){
-		ajustHeight = 550;
+		ajustHeight = (screenHight/3)*2.3;
 	}else{
-		ajustHeight = 500;
+		ajustHeight = (screenHight/3)*2.5;
 	}
 
 	setElm00.next().css({"opacity":"0"});
@@ -99,7 +100,7 @@ var windowSize = getScreenWidth();
 		elmTop01 = setElm01.offset().top,
 		elmTop02 = setElm02.offset().top,
 		elmTop03 = setElm03.offset().top,
-		scrTop = $(window).scrollTop();　//windowの高さ
+		scrTop = $(window).scrollTop();
 
 		if(scrTop >= elmTop00 - ajustHeight){
 			setElm00.next().css({"opacity":"1"}).addClass('fadeInUp');
@@ -120,7 +121,7 @@ var windowSize = getScreenWidth();
 	});
 
 /* ---------------------------------------------------------------------
-	slide-visual
+	Slide Visual
 ---------------------------------------------------------------------*/
 	function slider(){
 		var Wrapper = $("#box-slidevisual").prepend('<p class="back"><a href="#"></a></p><p class="next"><a href="#"></a></p>');
@@ -192,7 +193,7 @@ var windowSize = getScreenWidth();
 
 
 /* -----------------------------------
-	MainVisual Function
+	Slider Function
 ----------------------------------- */
 
 		//Reload
@@ -263,7 +264,7 @@ var windowSize = getScreenWidth();
 			    }
 	  	}
 
-      /*フリック操作*/
+      /*sp Flick*/
       function flick() { 
         var startX,startY,diffX,diffY,moveRate = 0;
         $(bnrItem).bind("touchstart touchmove touchend", function (e){
@@ -276,7 +277,7 @@ var windowSize = getScreenWidth();
                 diffX = touch.pageX - startX;
                 diffY = touch.pageY - startY;
                 moveRate = diffX / diffY;
-                //縦スクロール有効化
+                //schroll activation
                 if(moveRate > Math.tan(15 * Math.PI/180)) {
                   e.preventDefault();
                 }
