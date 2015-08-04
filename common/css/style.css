@@ -1255,7 +1255,7 @@ header {
   border-radius: 0 0 20px 20px;
   position: relative;
   padding: 30px 20px 30px 145px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-size: 62px;
   border-bottom: 8px solid #85000f;
   color: #b58517;
@@ -1278,7 +1278,7 @@ header {
 @media screen and (max-width: 900px) {
   .hdg-01 {
     font-size: 26px;
-    padding: 15px 20px 10px 62px;
+    padding: 0px 20px 10px 62px;
   }
   .hdg-01 span {
     font-size: 26px;
@@ -1425,6 +1425,9 @@ hr.hr-01 {
 .col-2 .col:last-child {
   margin-right: 0;
 }
+.col-2 .col p {
+  margin: 0 0 20px;
+}
 @media screen and (max-width: 767px) {
   .col-2 {
     margin-bottom: 20px;
@@ -1540,7 +1543,7 @@ hr.hr-01 {
   margin-bottom: 20px;
   box-shadow: 0px 0px 3px #333333;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 860px) {
   #wrap-box-slidevisual {
     width: 100%;
   }
@@ -1552,7 +1555,7 @@ hr.hr-01 {
   margin: 0 auto;
   overflow: hidden;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 860px) {
   #box-slidevisual {
     min-width: 100%;
     width: 100%;
@@ -1565,9 +1568,19 @@ hr.hr-01 {
 #box-slidevisual .back {
   position: absolute;
   top: 50%;
-  left: -10px;
+  left: -25px;
   z-index: 1;
   margin-top: -10px;
+  height: 40px;
+  width: 40px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  background-color: #FFF;
+}
+@media screen and (max-width: 900px) {
+  #box-slidevisual .back {
+    left: -16px;
+  }
 }
 
 #box-slidevisual .back a:before {
@@ -1585,20 +1598,26 @@ hr.hr-01 {
   height: 20px;
   content: '\f503';
   position: absolute;
-  left: -40px;
-}
-@media screen and (max-width: 900px) {
-  #box-slidevisual .back a:before {
-    left: 0px;
-  }
+  left: -5px;
+  top: 5px;
 }
 
 #box-slidevisual .next {
   position: absolute;
   top: 50%;
-  right: -10px;
+  right: -25px;
   z-index: 1;
   margin-top: -10px;
+  height: 40px;
+  width: 40px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  background-color: #FFF;
+}
+@media screen and (max-width: 900px) {
+  #box-slidevisual .next {
+    right: -16px;
+  }
 }
 
 #box-slidevisual .next a:before {
@@ -1614,12 +1633,8 @@ hr.hr-01 {
   text-shadow: 0px 2px 2px #666;
   color: #85000f;
   position: absolute;
-  right: -40px;
-}
-@media screen and (max-width: 900px) {
-  #box-slidevisual .next a:before {
-    right: 0px;
-  }
+  right: -5px;
+  top: 5px;
 }
 
 @media screen and (max-width: 768px) {
@@ -1711,8 +1726,8 @@ footer p {
 .fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
-  -webkit-animation-duration: 1.8s;
-  animation-duration: 1.8s;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
